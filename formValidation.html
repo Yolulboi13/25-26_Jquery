@@ -7,22 +7,108 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
+            // Validate the fields when the user clicks sumbit
             $("#submit").click(function(){
+                // Validates the first name field
                 if($("#fname").val().length === 0) {
                     $("#fname").css({'background-color': 'red'});
+                    $("#fname").css({'color': 'white'});
                     $("#fnameE").css({"display": "block"});
                 } else{
                     $("#fname").css({'background-color': 'white'});
+                    $("#fname").css({'color': 'black'});
                     $("#fnameE").css({"display": "none"});
                 }
+
+                if($("#lname").val().length === 0) {
+                    $("#lname").css({'background-color': 'red'});
+                    $("#lname").css({'color': 'white'});
+                    $("#lnameE").css({"display": "block"});
+                } else{
+                    $("#lname").css({'background-color': 'white'});
+                    $("#lname").css({'color': 'black'});
+                    $("#lnameE").css({"display": "none"});
+                }
+
+                if($("#street").val().length === 0) {
+                    $("#street").css({'background-color': 'red'});
+                    $("#street").css({'color': 'white'});
+                    $("#streetE").css({"display": "block"});
+                } else{
+                    $("#street").css({'background-color': 'white'});
+                    $("#street").css({'color': 'black'});
+                    $("#streetE").css({"display": "none"});
+                }
+
+                if($("#city").val().length === 0) {
+                    $("#city").css({'background-color': 'red'});
+                    $("#city").css({'color': 'white'});
+                    $("#cityE").css({"display": "block"});
+                } else{
+                    $("#city").css({'background-color': 'white'});
+                    $("#city").css({'color': 'black'});
+                    $("#cityE").css({"display": "none"});
+                }
+
+                if($("#zip").val().length === 0) {
+                    $("#zip").css({'background-color': 'red'});
+                    $("#zip").css({'color': 'white'});
+                    $("#zipE").css({"display": "block"});
+                } else{
+                    $("#zip").css({'background-color': 'white'});
+                    $("#zip").css({'color': 'black'});
+                    $("#zipE").css({"display": "none"});
+                }
+
+                if($("#username").val().length === 0) {
+                    $("#username").css({'background-color': 'red'});
+                    $("#username").css({'color': 'white'});
+                    $("#usernameE").css({"display": "block"});
+                } else{
+                    $("#username").css({'background-color': 'white'});
+                    $("#username").css({'color': 'black'});
+                    $("#usernameE").css({"display": "none"});
+                }
+
                 // REGEX YAYAYAYAYAYAYAYAYAYYAYAYAYYAYAYAY
+                // Also what's in the phone field has to match the filter
                 var phone_filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
                 if(!phone_filter.test($("#phone").val())){
                     $("#phone").css({'background-color': 'red'});
+                    $("#phone").css({'color': 'white'});
                     $("#phoneE").css({"display": "block"});
                 } else{
                     $("#phone").css({'background-color': 'white'});
+                    $("#phone").css({'color': 'black'});
                     $("#phoneE").css({"display": "none"});
+                }
+
+                // Same as the phone but for the email
+                var email_filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if(!email_filter.test($("#email").val())){
+                    $("#email").css({'background-color': 'red'});
+                    $("#email").css({'color': 'white'});
+                    $("#emailE").css({"display": "block"});
+                } else {
+                    $("#email").css({'background-color': 'white'});
+                    $("#email").css({'color': 'black'});
+                    $("#emailE").css({"display": "none"});
+                }
+
+                // This checks to see if the password is at least 8 characters and matches what's in the confirm password field
+                if($('#password').val().length < 8 || $('#password').val() !== $('#password2').val()){
+                    $("#password").css({'background-color': 'red'});
+                    $("#password").css({'color': 'white'});
+                    $("#password2").css({'background-color': 'red'});
+                    $("#password2").css({'color': 'white'});
+                    $("#passwordE").css({"display": "block"});
+
+                } else {
+                    $("#password").css({'background-color': 'white'});
+                    $("#password").css({'color': 'black'});
+                    $("#password2").css({'background-color': 'white'});
+                    $("#password2").css({'color': 'black'});
+                    $("#passwordE").css({"display": "none"});
                 }
             });
         });
@@ -36,16 +122,23 @@
     <br />
 
     <label for="lname">Last Name</label>
-    <input type="text" name="lname" id="lname" /><br />
+    <input type="text" name="lname" id="lname" placeholder="Last Name"/>
+    <div id="lnameE" style="display:none">Please enter your last name.</div>
+    <br />
 
     <label for="street">Street Address</label>
-    <input type="text" name="street" id="street" /><br />
+    <input type="text" name="street" id="street" placeholder="0 Street Dr"/>
+    <div id="streetE" style="display:none">Please enter your street address.</div>
+    <br />
 
     <label for="street2">Address 2</label>
-    <input type="text" name="street2" id="street2" /><br />
+    <input type="text" name="street2" id="street2" placeholder="9 Drive St"/>
+    <br />
 
     <label for="city">City</label>
-    <input type="text" name="city" id="city" />
+    <input type="text" name="city" id="city" placeholder="City"/>
+    <div id="cityE" style="display:none">Please enter your city.</div>
+    <br />
     <label for="state">State</label>
     <select name="state" id="state">
         <option value="AL">Alabama</option>
@@ -101,27 +194,34 @@
         <option value="WY">Wyoming</option>
     </select>
     <label for="zip">Zip</label>
-    <input type="text" name="city" id="zip" /><br />
+    <input type="text" name="city" id="zip" placeholder="00000"/>
+    <div id="zipE" style="display:none">Please enter your zip code.</div>
+    <br />
 
     <label for="phone">Phone</label>
     <input type="text" name="phone" id="phone" placeholder="000-000-0000"/><br />
     <div id="phoneE" style="display:none">Please enter a valid phone number.</div>
 
     <label for="email">Email</label>
-    <input type="text" name="email" id="email" /><br />
+    <input type="text" name="email" id="email" placeholder="email@domain.com"/><br />
     <div id="emailE" style="display:none">Please enter a valid email.</div>
 
     <label for="dob">DOB</label>
-    <input type="text" name="dob" id="dob" /><br />
+    <input type="text" name="dob" id="dob" placeholder="00/00/0000"/>
+    <br />
 
     <label for="username">Username</label>
-    <input type="text" name="username" id="username" /><br />
+    <input type="text" name="username" id="username" placeholder="Username"/>
+    <div id="usernameE" style="display:none">Please enter your username.</div>
+    <br />
 
     <label for="password">Password</label>
-    <input type="text" name="password" id="password" /><br />
+    <input type="text" name="password" id="password" placeholder="Password"/>
+    <div id="passwordE" style="display:none">Password must be at least 8 characters and must match confirm password.</div>
+    <br />
 
     <label for="password2">Confirm Password</label>
-    <input type="text" name="password2" id="password2" /><br />
+    <input type="text" name="password2" id="password2" placeholder="Password but again"/><br />
 
     <input type="checkbox" name="consent" id="consent">
     <label for="consent">I agree to receive mail every 2 seconds for your dumb products.</label><br />

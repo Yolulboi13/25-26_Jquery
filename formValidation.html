@@ -11,17 +11,16 @@
             $("#submit").click(function(){
                 // Validates the first name field
                 if($("#fname").val().length === 0) {
-                    $("#fname").css({'background-color': 'red'});
-                    $("#fname").css({'color': 'white'});
+                    $("#fname").css({'background-color': 'red', 'color':'white'});
                     $("#fnameE").css({"display": "block"});
                 } else{
                     $("#fname").css({'background-color': 'white'});
                     $("#fname").css({'color': 'black'});
                     $("#fnameE").css({"display": "none"});
                 }
-
+                // Ditto but with the last name
                 if($("#lname").val().length === 0) {
-                    $("#lname").css({'background-color': 'red'});
+                    $("#lname").css({'background-color': 'red', 'color':'white'});
                     $("#lname").css({'color': 'white'});
                     $("#lnameE").css({"display": "block"});
                 } else{
@@ -29,9 +28,9 @@
                     $("#lname").css({'color': 'black'});
                     $("#lnameE").css({"display": "none"});
                 }
-
+                // Ditto but with the street address
                 if($("#street").val().length === 0) {
-                    $("#street").css({'background-color': 'red'});
+                    $("#street").css({'background-color': 'red', 'color':'white'});
                     $("#street").css({'color': 'white'});
                     $("#streetE").css({"display": "block"});
                 } else{
@@ -39,9 +38,9 @@
                     $("#street").css({'color': 'black'});
                     $("#streetE").css({"display": "none"});
                 }
-
+                // Ditto but with the city
                 if($("#city").val().length === 0) {
-                    $("#city").css({'background-color': 'red'});
+                    $("#city").css({'background-color': 'red', 'color':'white'});
                     $("#city").css({'color': 'white'});
                     $("#cityE").css({"display": "block"});
                 } else{
@@ -49,9 +48,9 @@
                     $("#city").css({'color': 'black'});
                     $("#cityE").css({"display": "none"});
                 }
-
+                // Ditto but with the zip code
                 if($("#zip").val().length === 0) {
-                    $("#zip").css({'background-color': 'red'});
+                    $("#zip").css({'background-color': 'red', 'color':'white'});
                     $("#zip").css({'color': 'white'});
                     $("#zipE").css({"display": "block"});
                 } else{
@@ -59,9 +58,9 @@
                     $("#zip").css({'color': 'black'});
                     $("#zipE").css({"display": "none"});
                 }
-
+                // Ditto but with the username
                 if($("#username").val().length === 0) {
-                    $("#username").css({'background-color': 'red'});
+                    $("#username").css({'background-color': 'red', 'color':'white'});
                     $("#username").css({'color': 'white'});
                     $("#usernameE").css({"display": "block"});
                 } else{
@@ -69,12 +68,11 @@
                     $("#username").css({'color': 'black'});
                     $("#usernameE").css({"display": "none"});
                 }
-
-                // REGEX YAYAYAYAYAYAYAYAYAYYAYAYAYYAYAYAY
-                // Also what's in the phone field has to match the filter
+                // Ditto but with the phone number
+                // Also what's in the phone field has to match the filter cus regex
                 var phone_filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
                 if(!phone_filter.test($("#phone").val())){
-                    $("#phone").css({'background-color': 'red'});
+                    $("#phone").css({'background-color': 'red', 'color':'white'});
                     $("#phone").css({'color': 'white'});
                     $("#phoneE").css({"display": "block"});
                 } else{
@@ -83,10 +81,10 @@
                     $("#phoneE").css({"display": "none"});
                 }
 
-                // Same as the phone but for the email
+                // Ditto to phone number but with the email address
                 var email_filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
                 if(!email_filter.test($("#email").val())){
-                    $("#email").css({'background-color': 'red'});
+                    $("#email").css({'background-color': 'red', 'color':'white'});
                     $("#email").css({'color': 'white'});
                     $("#emailE").css({"display": "block"});
                 } else {
@@ -94,15 +92,14 @@
                     $("#email").css({'color': 'black'});
                     $("#emailE").css({"display": "none"});
                 }
-
-                // This checks to see if the password is at least 8 characters and matches what's in the confirm password field
+                // Ditto but with password
+                // This also checks to see if the password is at least 8 characters and matches what's in the confirm password field
                 if($('#password').val().length < 8 || $('#password').val() !== $('#password2').val()){
-                    $("#password").css({'background-color': 'red'});
+                    $("#password").css({'background-color': 'red', 'color':'white'});
                     $("#password").css({'color': 'white'});
-                    $("#password2").css({'background-color': 'red'});
+                    $("#password2").css({'background-color': 'red', 'color':'white'});
                     $("#password2").css({'color': 'white'});
                     $("#passwordE").css({"display": "block"});
-
                 } else {
                     $("#password").css({'background-color': 'white'});
                     $("#password").css({'color': 'black'});
@@ -221,7 +218,7 @@
     <br />
 
     <label for="password2">Confirm Password</label>
-    <input type="text" name="password2" id="password2" placeholder="Password but again"/><br />
+    <input type="text" name="password2" id="password2" placeholder="Password but again+3."/><br />
 
     <input type="checkbox" name="consent" id="consent">
     <label for="consent">I agree to receive mail every 2 seconds for your dumb products.</label><br />

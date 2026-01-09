@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
-            // Validate the fields when the user clicks sumbit
+            // Validate the fields when the user clicks submit
             $("#submit").click(function(){
                 // Validates the first name field
                 if($("#fname").val().length === 0) {
@@ -15,57 +15,46 @@
                     $("#fnameE").css({"display": "block"});
                 } else{
                     $("#fname").css({'background-color': 'white'});
-                    $("#fname").css({'color': 'black'});
                     $("#fnameE").css({"display": "none"});
                 }
                 // Ditto but with the last name
                 if($("#lname").val().length === 0) {
                     $("#lname").css({'background-color': 'red', 'color':'white'});
-                    $("#lname").css({'color': 'white'});
                     $("#lnameE").css({"display": "block"});
                 } else{
-                    $("#lname").css({'background-color': 'white'});
-                    $("#lname").css({'color': 'black'});
+                    $("#lname").css({'background-color': 'white', 'color': 'black'});
                     $("#lnameE").css({"display": "none"});
                 }
                 // Ditto but with the street address
                 if($("#street").val().length === 0) {
                     $("#street").css({'background-color': 'red', 'color':'white'});
-                    $("#street").css({'color': 'white'});
                     $("#streetE").css({"display": "block"});
                 } else{
-                    $("#street").css({'background-color': 'white'});
-                    $("#street").css({'color': 'black'});
+                    $("#street").css({'background-color': 'white', 'color': 'black'});
                     $("#streetE").css({"display": "none"});
                 }
                 // Ditto but with the city
                 if($("#city").val().length === 0) {
                     $("#city").css({'background-color': 'red', 'color':'white'});
-                    $("#city").css({'color': 'white'});
                     $("#cityE").css({"display": "block"});
                 } else{
-                    $("#city").css({'background-color': 'white'});
-                    $("#city").css({'color': 'black'});
+                    $("#city").css({'background-color': 'white', 'color': 'black'});
                     $("#cityE").css({"display": "none"});
                 }
                 // Ditto but with the zip code
                 if($("#zip").val().length === 0) {
                     $("#zip").css({'background-color': 'red', 'color':'white'});
-                    $("#zip").css({'color': 'white'});
                     $("#zipE").css({"display": "block"});
                 } else{
-                    $("#zip").css({'background-color': 'white'});
-                    $("#zip").css({'color': 'black'});
+                    $("#zip").css({'background-color': 'white', 'color': 'black'});
                     $("#zipE").css({"display": "none"});
                 }
                 // Ditto but with the username
                 if($("#username").val().length === 0) {
                     $("#username").css({'background-color': 'red', 'color':'white'});
-                    $("#username").css({'color': 'white'});
                     $("#usernameE").css({"display": "block"});
                 } else{
-                    $("#username").css({'background-color': 'white'});
-                    $("#username").css({'color': 'black'});
+                    $("#username").css({'background-color': 'white', 'color': 'black'});
                     $("#usernameE").css({"display": "none"});
                 }
                 // Ditto but with the phone number
@@ -73,11 +62,9 @@
                 var phone_filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
                 if(!phone_filter.test($("#phone").val())){
                     $("#phone").css({'background-color': 'red', 'color':'white'});
-                    $("#phone").css({'color': 'white'});
                     $("#phoneE").css({"display": "block"});
                 } else{
-                    $("#phone").css({'background-color': 'white'});
-                    $("#phone").css({'color': 'black'});
+                    $("#phone").css({'background-color': 'white', 'color': 'black'});
                     $("#phoneE").css({"display": "none"});
                 }
 
@@ -85,26 +72,20 @@
                 var email_filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
                 if(!email_filter.test($("#email").val())){
                     $("#email").css({'background-color': 'red', 'color':'white'});
-                    $("#email").css({'color': 'white'});
                     $("#emailE").css({"display": "block"});
                 } else {
-                    $("#email").css({'background-color': 'white'});
-                    $("#email").css({'color': 'black'});
+                    $("#email").css({'background-color': 'white', 'color': 'black'});
                     $("#emailE").css({"display": "none"});
                 }
                 // Ditto but with password
                 // This also checks to see if the password is at least 8 characters and matches what's in the confirm password field
                 if($('#password').val().length < 8 || $('#password').val() !== $('#password2').val()){
                     $("#password").css({'background-color': 'red', 'color':'white'});
-                    $("#password").css({'color': 'white'});
                     $("#password2").css({'background-color': 'red', 'color':'white'});
-                    $("#password2").css({'color': 'white'});
                     $("#passwordE").css({"display": "block"});
                 } else {
-                    $("#password").css({'background-color': 'white'});
-                    $("#password").css({'color': 'black'});
-                    $("#password2").css({'background-color': 'white'});
-                    $("#password2").css({'color': 'black'});
+                    $("#password").css({'background-color': 'white', 'color': 'black'});
+                    $("#password2").css({'background-color': 'white', 'color': 'black'});
                     $("#passwordE").css({"display": "none"});
                 }
             });
